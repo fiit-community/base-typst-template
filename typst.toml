@@ -1,0 +1,22 @@
+[package]
+name = "base-fiit-template"
+version = "0.1.0"
+compiler = "0.11.0"
+entrypoint = "src/lib.typ"
+repository = "https://github.com/fiit-community/base-typst-template"
+authors = ["Illia Chaban <ic-it@mail.com"]
+license = "MIT"
+description = "Modern thesis template for Faculty of Informatics and Information Technologies, Slovak University of Technology in Bratislava."
+keywords = [
+    "thesis",
+    "university",
+    "fiit stu",
+    "fiit",
+    "Faculty of Informatics and Information Technologies",
+]
+categories = ["thesis"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

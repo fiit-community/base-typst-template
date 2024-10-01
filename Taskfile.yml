@@ -1,0 +1,30 @@
+version: 3
+
+vars:
+  VIEWER: xdg-open
+
+tasks:
+  build-doc:
+    desc: "Build the document"
+    silent: true
+    vars:
+      TEMP_DIR: tmp
+    cmds:
+      - echo "Build the Thumbnail..."
+      - mkdir -p {{.TEMP_DIR}}
+      - defer: rmdir {{.TEMP_DIR}}
+      - typst compile --ppi 250 template/main.typ '{{.TEMP_DIR}}/example{n}.png'
+      - mv {{.TEMP_DIR}}/example1.png thumbnail.png
+      - find {{.TEMP_DIR}} -type f -name 'example*.png' -exec rm {} \;
+
+  install-local:
+    desc: "Install or Update the template locally"
+    cmds:
+      - mkdir -p ~/.local/share/typst/packages/local/$(awk -F ' = ' '/name/ {gsub(/"/, "", $2); print $2}' typst.toml)
+      - ln -s $(pwd) ~/.local/share/typst/packages/local/$(awk -F ' = ' '/name/ {gsub(/"/, "", $2); name=$2} /version/ {gsub(/"/, "", $2); print name "/" $2}' typst.toml)
+
+  watch:
+    desc: "Watch the document"
+    silent: true
+    cmds:
+      - typst w template/main.typ --open zathura

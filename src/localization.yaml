@@ -1,0 +1,29 @@
+en:
+  stu: Slovak Technical University in Bratislava
+  fiit: Faculty of Informatics and Information Technologies
+
+  cover-page:
+    author-name: Author
+    author-id: ID
+    subject: Subject
+    teacher: Teacher
+    time: Time
+    academic-year: Academic year
+
+  content:
+    title: Content
+
+sk:
+  stu: Slovenská technická univerzita v Bratislave
+  fiit: Fakulta informatiky a informačných technológií
+
+  cover-page:
+    author-name: Autor
+    author-id: ID
+    subject: Predmet
+    teacher: Cvičiaci
+    time: Cvičenie
+    academic-year: Akademický rok
+
+  content:
+    title: Obsah
